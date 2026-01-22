@@ -61,7 +61,6 @@
                 fillOpacity: 1
               });
             }
-            highlightLayer.openPopup();
         }
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
@@ -168,13 +167,6 @@
                             e.target._eventParents[i].resetStyle(e.target);
                         }
                     }
-                    if (typeof layer.closePopup == 'function') {
-                        layer.closePopup();
-                    } else {
-                        layer.eachLayer(function(feature){
-                            feature.closePopup()
-                        });
-                    }
                 },
                 mouseover: highlightFeature,
             });
@@ -183,7 +175,8 @@
                         <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(String(feature.properties['id']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2"><strong>name</strong><br />' + (feature.properties['name'] !== null ? autolinker.link(String(feature.properties['name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                        <th scope="row">name</th>\
+                        <td class="visible-with-data" id="name">' + (feature.properties['name'] !== null ? autolinker.link(String(feature.properties['name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -234,13 +227,6 @@
                             e.target._eventParents[i].resetStyle(e.target);
                         }
                     }
-                    if (typeof layer.closePopup == 'function') {
-                        layer.closePopup();
-                    } else {
-                        layer.eachLayer(function(feature){
-                            feature.closePopup()
-                        });
-                    }
                 },
                 mouseover: highlightFeature,
             });
@@ -249,7 +235,7 @@
                         <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(String(feature.properties['id']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2"><strong>name</strong><br />' + (feature.properties['name'] !== null ? autolinker.link(String(feature.properties['name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                        <td class="visible-with-data" id="name" colspan="2"><strong>name</strong><br />' + (feature.properties['name'] !== null ? autolinker.link(String(feature.properties['name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -304,13 +290,6 @@
                             e.target._eventParents[i].resetStyle(e.target);
                         }
                     }
-                    if (typeof layer.closePopup == 'function') {
-                        layer.closePopup();
-                    } else {
-                        layer.eachLayer(function(feature){
-                            feature.closePopup()
-                        });
-                    }
                 },
                 mouseover: highlightFeature,
             });
@@ -319,13 +298,13 @@
                         <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(String(feature.properties['id']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2"><strong>name</strong><br />' + (feature.properties['name'] !== null ? autolinker.link(String(feature.properties['name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['name'] !== null ? autolinker.link(String(feature.properties['name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2"><strong>picture</strong><br />' + (feature.properties['picture'] !== null ? autolinker.link(String(feature.properties['picture']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['picture'] !== null ? autolinker.link(String(feature.properties['picture']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2"><strong>Distance</strong><br />' + (feature.properties['Distance'] !== null ? autolinker.link(String(feature.properties['Distance']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['Distance'] !== null ? autolinker.link(String(feature.properties['Distance']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
